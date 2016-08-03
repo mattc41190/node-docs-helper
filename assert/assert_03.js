@@ -1,4 +1,4 @@
-// Assert 03 doesNotThrow
+// Assert 03 throws and doesNotThrow
 
 const assert = require('assert');
 
@@ -13,4 +13,8 @@ function doMathIncorrectly() {
 }
 
 assert.doesNotThrow(doMathCorrectly);
-assert.doesNotThrow(doMathIncorrectly, 'doMathIncorrectly throws an error and should not');
+assert.throws(doMathIncorrectly);
+
+// The following two calls will throw assertion errors
+assert.throws(doMathCorrectly, 'doMathCorrectly was expected to throw an error and does not');
+// assert.doesNotThrow(doMathIncorrectly, 'doMathIncorrectly throws an error and should not');
